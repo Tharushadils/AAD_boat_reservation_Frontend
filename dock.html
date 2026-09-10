@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaVenture | Docks & Berths</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="dock.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <span>AV</span>
+                </div>
+                <div class="brand-text">
+                    <strong>AquaVenture</strong><br>
+                    <small>Dock Management</small>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="reservation.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-calendar-check"></i>
+                    <span>Reservations</span>
+                </a>
+                <a href="boat.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-sailboat"></i>
+                    <span>Boat Management</span>
+                </a>
+                <a href="user.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="boat-categories.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-ship"></i>
+                    <span>Boat Categories</span>
+                </a>
+                
+                <a href="dock.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-anchor"></i>
+                    <span>Docks</span>
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
+                
+                <a href="maintenance.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-screwdriver-wrench"></i>
+                    <span>Maintenance Logs</span>
+                </a>
+                <a href="reviews.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-star"></i>
+                    <span>Reviews</span>
+                </a>
+                <a href="add-ons.html" class="nav-item active">
+                    <i class="nav-icon fa-solid fa-puzzle-piece"></i>
+                    <span>Add-on Services</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <button class="logout-btn" id="logoutBtn">
+                    <span>↪</span>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="page-heading">
+                    <div>
+                        <p class="breadcrumb">Management / Docks</p>
+                        <h1>Dock Operations</h1>
+                        <p class="page-subtitle">Oversee dock locations, berth capacity, and vessel mooring status.</p>
+                    </div>
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="notification-btn" aria-label="Notifications">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="profile">
+                        <div class="profile-avatar">TH</div>
+                        <div class="profile-info">
+                            <strong>Tharusha</strong>
+                            <span>Administrator</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT -->
+            <section class="content">
+
+                <!-- STATS -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Total Docks</span>
+                            <strong id="totalDocks">0</strong>
+                            <span class="stat-description">Active locations</span>
+                        </div>
+                        <div class="stat-icon amber">
+                            <i class="fa-solid fa-anchor"></i>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Total Capacity</span>
+                            <strong id="totalCapacity">0</strong>
+                            <span class="stat-description">Available berths</span>
+                        </div>
+                        <div class="stat-icon green">
+                            <i class="fa-solid fa-square-parking"></i>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Active Stations</span>
+                            <strong id="activeDocks">0</strong>
+                            <span class="stat-description">Operational docks</span>
+                        </div>
+                        <div class="stat-icon teal">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Under Maintenance</span>
+                            <strong id="maintenanceDocks">0</strong>
+                            <span class="stat-description">Repairs in progress</span>
+                        </div>
+                        <div class="stat-icon orange">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL -->
+                <div class="content-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h2>Dock Facilities & Stations</h2>
+                            <p>Manage docking stations and track berth availability across waterways.</p>
+                        </div>
+                        <button class="primary-btn" id="addDockBtn">
+                            <i class="fa-solid fa-plus"></i>
+                            New Dock
+                        </button>
+                    </div>
+
+                    <!-- FILTER BAR -->
+                    <div class="filter-bar">
+                        <div class="search-box">
+                            <i class="search-icon fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="searchInput" placeholder="Search dock name, location or address...">
+                        </div>
+
+                        <button class="filter-btn" id="refreshBtn">
+                            <i class="fa-solid fa-rotate"></i>
+                            Refresh
+                        </button>
+                    </div>
+
+                    <!-- DOCK GRID -->
+                    <div id="dockGrid" class="dock-cards-grid">
+                        <!-- Dynamic cards rendered here -->
+                    </div>
+
+                    <!-- EMPTY STATE -->
+                    <div class="empty-state" id="emptyState" style="display: none;">
+                        <div class="empty-icon">
+                            <i class="fa-solid fa-anchor-circle-xmark"></i>
+                        </div>
+                        <h3>No docks found</h3>
+                        <p>There are no dock facilities matching your query.</p>
+                    </div>
+
+                    <!-- LOADING STATE -->
+                    <div class="loading-state" id="loadingState">
+                        <div class="spinner"></div>
+                        <span>Loading dock directory...</span>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- DOCK MODAL -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <div>
+                    <h2 id="modalTitle">New Dock Station</h2>
+                    <p>Register dock location and maximum boat capacity.</p>
+                </div>
+                <button class="modal-close" id="closeModalBtn" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="dockForm">
+                <input type="hidden" id="dockId">
+
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="dockName">Dock Name</label>
+                        <input type="text" id="dockName" placeholder="e.g. Bentota Main Marina, Kandy Lake Pier"
+                            required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="locationAddress">Location Address</label>
+                        <input type="text" id="locationAddress" placeholder="e.g. 142 Coastal Highway, Bentota"
+                            required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="maxCapacity">Mooring Capacity (Boats)</label>
+                        <input type="number" id="maxCapacity" min="1" placeholder="e.g. 12" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="dockStatus">Status</label>
+                        <select id="dockStatus">
+                            <option value="ACTIVE">Active</option>
+                            <option value="MAINTENANCE">Under Maintenance</option>
+                            <option value="FULL">Fully Occupied</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="secondary-btn" id="cancelModalBtn">Cancel</button>
+                    <button type="submit" class="primary-btn" id="submitBtn">Save Dock</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <strong id="toastTitle">Success</strong>
+            <p id="toastMessage">Operation completed successfully.</p>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+ <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="dock.js"></script>
+</body>
+
+</html>

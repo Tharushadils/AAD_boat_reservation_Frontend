@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AquaVenture | Routes</title>
+
+    <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="routes.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">
+                    <span>AV</span>
+                </div>
+
+                <div class="brand-text">
+                    <strong>AquaVenture</strong>
+                    <small>Route Management</small>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="reservation.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-calendar-check"></i>
+                    <span>Reservations</span>
+                </a>
+
+                <a href="boat.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-sailboat"></i>
+                    <span>Boat Management</span>
+                </a>
+
+                <a href="user.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-users"></i>
+                    <span>Users</span>
+                </a>
+
+                <a href="boat-categories.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-ship"></i>
+                    <span>Boat Categories</span>
+                </a>
+
+                <a href="routes.html" class="nav-item active">
+                    <i class="nav-icon fa-solid fa-route"></i>
+                    <span>Routes</span>
+                </a>
+
+                <a href="dock.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-anchor"></i>
+                    <span>Docks</span>
+                </a>
+
+                <a href="payments.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
+
+                <a href="invoice.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-file-invoice"></i>
+                    <span>Invoices</span>
+                </a>
+
+                <a href="maintenance.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-screwdriver-wrench"></i>
+                    <span>Maintenance Logs</span>
+                </a>
+
+                <a href="reviews.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-star"></i>
+                    <span>Reviews</span>
+                </a>
+
+                <a href="add-ons.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-puzzle-piece"></i>
+                    <span>Add-on Services</span>
+                </a>
+
+                <a href="settings.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button class="logout-btn" id="logoutBtn">
+                    <span>↪</span>
+                    Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="page-heading">
+
+                    <p class="breadcrumb">
+                        Management / Routes
+                    </p>
+
+                    <h1>
+                        Navigation Routes
+                    </h1>
+
+                    <p class="page-subtitle">
+                        Configure water excursion itineraries and route pricing.
+                    </p>
+
+                </div>
+
+
+                <div class="topbar-actions">
+
+                    <button class="notification-btn">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="profile">
+
+                        <div class="profile-avatar">
+                            TH
+                        </div>
+
+                        <div class="profile-info">
+                            <strong>Tharusha</strong>
+                            <span>Administrator</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- CONTENT -->
+            <section class="content">
+
+                <!-- STATS -->
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-content">
+
+                            <span class="stat-label">
+                                Total Routes
+                            </span>
+
+                            <strong id="totalRoutes">
+                                0
+                            </strong>
+
+                            <span class="stat-description">
+                                Available routes
+                            </span>
+
+                        </div>
+
+                        <div class="stat-icon sky">
+                            <i class="fa-solid fa-route"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-content">
+
+                            <span class="stat-label">
+                                Avg Duration
+                            </span>
+
+                            <strong id="avgDuration">
+                                0 hrs
+                            </strong>
+
+                            <span class="stat-description">
+                                Average route duration
+                            </span>
+
+                        </div>
+
+                        <div class="stat-icon teal">
+                            <i class="fa-solid fa-stopwatch"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-content">
+
+                            <span class="stat-label">
+                                Start Points
+                            </span>
+
+                            <strong id="totalStartPoints">
+                                0
+                            </strong>
+
+                            <span class="stat-description">
+                                Different origins
+                            </span>
+
+                        </div>
+
+                        <div class="stat-icon blue">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-content">
+
+                            <span class="stat-label">
+                                Highest Fee
+                            </span>
+
+                            <strong id="topPrice">
+                                Rs. 0
+                            </strong>
+
+                            <span class="stat-description">
+                                Highest base route fee
+                            </span>
+
+                        </div>
+
+                        <div class="stat-icon green">
+                            <i class="fa-solid fa-water"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ROUTES PANEL -->
+                <div class="content-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>
+                                Waterway Itineraries
+                            </h2>
+
+                            <p>
+                                Manage route locations, duration and pricing.
+                            </p>
+
+                        </div>
+
+                        <button class="primary-btn" id="addRouteBtn">
+
+                            <i class="fa-solid fa-plus"></i>
+
+                            New Route
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- SEARCH -->
+                    <div class="filter-bar">
+
+                        <div class="search-box">
+
+                            <i class="search-icon fa-solid fa-magnifying-glass"></i>
+
+                            <input type="text" id="searchInput"
+                                placeholder="Search route name, start point or destination...">
+
+                        </div>
+
+
+                        <button class="filter-btn" id="refreshBtn">
+
+                            <i class="fa-solid fa-rotate"></i>
+
+                            Refresh
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- TABLE -->
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Route Name
+                                    </th>
+
+                                    <th>
+                                        Origin → Destination
+                                    </th>
+
+                                    <th>
+                                        Est. Duration
+                                    </th>
+
+                                    <th>
+                                        Base Route Fee
+                                    </th>
+
+                                    <th>
+                                        Actions
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="routeTableBody">
+
+                            </tbody>
+
+                        </table>
+
+
+                        <!-- LOADING -->
+                        <div class="loading-state" id="loadingState">
+
+                            <div class="spinner"></div>
+
+                            <span>
+                                Loading routes...
+                            </span>
+
+                        </div>
+
+
+                        <!-- EMPTY -->
+                        <div class="empty-state" id="emptyState" style="display: none;">
+
+                            <div class="empty-icon">
+
+                                <i class="fa-solid fa-route"></i>
+
+                            </div>
+
+                            <h3>
+                                No routes found
+                            </h3>
+
+                            <p>
+                                No navigation routes are available.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ROUTE MODAL -->
+    <div class="modal-overlay" id="routeModal">
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2 id="modalTitle">
+                        New Route
+                    </h2>
+
+                    <p>
+                        Add route information.
+                    </p>
+
+                </div>
+
+
+                <button class="modal-close" id="closeModalBtn">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- FORM -->
+            <form id="routeForm">
+
+                <input type="hidden" id="routeId">
+
+
+                <div class="form-grid">
+
+                    <!-- ROUTE NAME -->
+                    <div class="form-group full-width">
+
+                        <label for="routeName">
+                            Route Name
+                        </label>
+
+                        <input type="text" id="routeName" placeholder="Enter route name" required>
+
+                    </div>
+
+
+                    <!-- START POINT -->
+                    <div class="form-group">
+
+                        <label for="startPoint">
+                            Start Point
+                        </label>
+
+                        <input type="text" id="startPoint" placeholder="Enter start point" required>
+
+                    </div>
+
+
+                    <!-- DESTINATION POINT -->
+                    <div class="form-group">
+
+                        <label for="destinationPoint">
+                            Destination Point
+                        </label>
+
+                        <input type="text" id="destinationPoint" placeholder="Enter destination point" required>
+
+                    </div>
+
+
+                    <!-- DURATION -->
+                    <div class="form-group">
+
+                        <label for="estimatedDurationHours">
+                            Estimated Duration (Hours)
+                        </label>
+
+                        <input type="number" id="estimatedDurationHours" step="0.1" min="0" placeholder="e.g. 2.5"
+                            required>
+
+                    </div>
+
+
+                    <!-- BASE FEE -->
+                    <div class="form-group">
+
+                        <label for="baseRouteFee">
+                            Base Route Fee (Rs.)
+                        </label>
+
+                        <input type="number" id="baseRouteFee" step="0.01" min="0" placeholder="e.g. 5000" required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FOOTER -->
+                <div class="modal-footer">
+
+                    <button type="button" class="secondary-btn" id="cancelModalBtn">
+
+                        Cancel
+
+                    </button>
+
+
+                    <button type="submit" class="primary-btn" id="submitBtn">
+
+                        Save Route
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+
+        <div class="toast-icon">
+            <i class="fa-solid fa-check"></i>
+        </div>
+
+        <div>
+
+            <strong id="toastTitle">
+                Success
+            </strong>
+
+            <p id="toastMessage">
+                Operation completed successfully.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop">
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+    </button>
+
+ <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="routes.js"></script>
+    
+
+</body>
+
+</html>

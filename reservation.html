@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaVenture | Reservations</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="reservation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">
+                    <span>AV</span>
+                </div>
+
+                <div class="brand-text">
+                    <strong>AquaVenture</strong><br>
+                    <small>Boat Management</small>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="reservation.html" class="nav-item active">
+                    <i class="nav-icon fa-solid fa-calendar-check"></i>
+                    <span>Reservations</span>
+                </a>
+                <a href="boat.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-sailboat"></i>
+                    <span>Boat Management</span>
+                </a>
+                <a href="user.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="boat-categories.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-ship"></i>
+                    <span>Boat Categories</span>
+                </a>
+                <a href="dock.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-anchor"></i>
+                    <span>Docks</span>
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
+                <a href="maintenance.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-screwdriver-wrench"></i>
+                    <span>Maintenance Logs</span>
+                </a>
+                <a href="reviews.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-star"></i>
+                    <span>Reviews</span>
+                </a>
+                <a href="add-ons.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-puzzle-piece"></i>
+                    <span>Add-on Services</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <button class="logout-btn" id="logoutBtn">
+                    <span>↪</span>
+                    Logout
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="page-heading">
+                    <div>
+                        <p class="breadcrumb">Management / Reservations</p>
+                        <h1>Reservation Management</h1>
+                        <p class="page-subtitle">Track, schedule, and process customer boat bookings.</p>
+                    </div>
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="notification-btn" aria-label="Notifications">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="profile">
+                        <div class="profile-avatar">TH</div>
+                        <div class="profile-info">
+                            <strong>Tharusha</strong>
+                            <span>Administrator</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT -->
+            <section class="content">
+
+                <!-- STATS -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Total Bookings</span>
+                            <strong id="totalReservations">0</strong>
+                            <span class="stat-description">All-time bookings</span>
+                        </div>
+                        <div class="stat-icon teal">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Confirmed</span>
+                            <strong id="confirmedCount">0</strong>
+                            <span class="stat-description">Active reservations</span>
+                        </div>
+                        <div class="stat-icon jade">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Pending Approval</span>
+                            <strong id="pendingCount">0</strong>
+                            <span class="stat-description">Awaiting action</span>
+                        </div>
+                        <div class="stat-icon orange">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Cancelled</span>
+                            <strong id="cancelledCount">0</strong>
+                            <span class="stat-description">Terminated bookings</span>
+                        </div>
+                        <div class="stat-icon orange">
+                            <i class="fa-solid fa-ban"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RESERVATION PANEL -->
+                <div class="content-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h2>Reservation Log</h2>
+                            <p>Manage existing reservations and register new schedules.</p>
+                        </div>
+                        <button class="primary-btn" id="addReservationBtn">
+                            <i class="fa-solid fa-plus"></i> New Reservation
+                        </button>
+                    </div>
+
+                    <!-- FILTER BAR -->
+                    <div class="filter-bar">
+                        <div class="search-box">
+                            <i class="search-icon fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="searchInput" placeholder="Search by reservation or user ID...">
+                        </div>
+
+                        <select id="statusFilter">
+                            <option value="ALL">All Status</option>
+                            <option value="CONFIRMED">Confirmed</option>
+                            <option value="PENDING">Pending</option>
+                            <option value="CANCELLED">Cancelled</option>
+                            <option value="COMPLETED">Completed</option>
+                        </select>
+
+                        <button class="filter-btn" id="refreshBtn">
+                            <i class="fa-solid fa-rotate"></i> Refresh
+                        </button>
+                    </div>
+
+                    <!-- TABLE -->
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>User ID</th>
+                                    <th>Boat ID</th>
+                                    <th>Slot ID</th>
+                                    <th>Seats</th>
+                                    <th>Date</th>
+                                    <th>Route (Start -> End Dock)</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reservationTableBody">
+                                <!-- Dynamic records -->
+                            </tbody>
+                        </table>
+
+                        <!-- EMPTY STATE -->
+                        <div class="empty-state" id="emptyState" style="display: none;">
+                            <div class="empty-icon">
+                                <i class="fa-solid fa-calendar-xmark"></i>
+                            </div>
+                            <h3>No reservations found</h3>
+                            <p>There are no reservation records matching your request.</p>
+                        </div>
+
+                        <!-- LOADING STATE -->
+                        <div class="loading-state" id="loadingState" style="display: none;">
+                            <div class="spinner"></div>
+                            <span>Loading reservations...</span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- RESERVATION MODAL -->
+    <div class="modal-overlay" id="reservationModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div>
+                    <h2 id="modalTitle">New Reservation</h2>
+                    <p>Register or modify reservation details.</p>
+                </div>
+                <button class="modal-close" id="closeModalBtn" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- FORM -->
+            <form id="reservationForm">
+                <input type="hidden" id="reservationId">
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="userId">User ID</label>
+                        <input type="number" id="userId" placeholder="e.g. 1" min="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="boatId">Boat ID</label>
+                        <input type="number" id="boatId" placeholder="e.g. 2" min="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="slotId">Slot ID</label>
+                        <input type="number" id="slotId" placeholder="e.g. 1" min="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="noOfSeats">Number of Seats</label>
+                        <input type="number" id="noOfSeats" placeholder="e.g. 2" min="1" value="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reservationDate">Reservation Date</label>
+                        <input type="date" id="reservationDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="startDockId">Start Dock ID</label>
+                        <input type="number" id="startDockId" placeholder="e.g. 1" min="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endDockId">End Dock ID</label>
+                        <input type="number" id="endDockId" placeholder="e.g. 2" min="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reservationStatus">Status</label>
+                        <select id="reservationStatus" required>
+                            <option value="">Select Status</option>
+                            <option value="PENDING">PENDING</option>
+                            <option value="CONFIRMED">CONFIRMED</option>
+                            <option value="COMPLETED">COMPLETED</option>
+                            <option value="CANCELLED">CANCELLED</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="secondary-btn" id="cancelModalBtn">Cancel</button>
+                    <button type="submit" class="primary-btn" id="submitBtn">Save Reservation</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <div class="toast-icon" id="toastIcon">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <strong id="toastTitle">Success</strong>
+            <p id="toastMessage">Operation completed successfully.</p>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="reservation.js"></script>
+</body>
+
+</html>

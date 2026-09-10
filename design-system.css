@@ -1,0 +1,338 @@
+/* =========================================================
+   AQUAVENTURE GLOBAL DESIGN SYSTEM (design-system.css)
+   Consolidated Design Tokens, Components & Utilities
+   ========================================================= */
+
+:root {
+    /* Brand Navy Palette */
+    --navy-950: #031b27;
+    --navy-900: #052633;
+    --navy-800: #071b2e;
+    --navy-700: #0b2942;
+    --navy-600: #0e3756;
+
+    /* Primary Aqua Palette */
+    --primary-color: #10a7a1;
+    --primary-hover: #0ca8aa;
+    --primary-light: rgba(16, 167, 161, 0.12);
+    --aqua-500: #12b8b0;
+    --aqua-400: #25d2c7;
+    --aqua-300: #64e4db;
+    --blue-accent: #087ea4;
+
+    /* Semantic Status Colors */
+    --success-color: #18a873;
+    --success-light: rgba(24, 168, 115, 0.12);
+    --warning-color: #ef9b45;
+    --warning-light: rgba(239, 155, 69, 0.12);
+    --danger-color: #e45c65;
+    --danger-light: rgba(228, 92, 101, 0.12);
+    --info-color: #087ea4;
+    --info-light: rgba(8, 126, 164, 0.12);
+
+    /* Backgrounds & Surfaces */
+    --background: #f5f8fa;
+    --surface: #ffffff;
+    --surface-alt: #f8fafc;
+    --surface-dark: #071c30;
+    --off-white: #f7fbfb;
+    --light-bg: #eef6f6;
+
+    /* Neutral Typography Colors */
+    --text-primary: #102a43;
+    --text-dark: #092532;
+    --text-secondary: #49636d;
+    --text-muted: #718096;
+    --text-light: #9ab0b7;
+
+    /* Borders & Outlines */
+    --border-color: #e6edf2;
+    --border: rgba(8, 48, 61, 0.10);
+    --white-border: rgba(255, 255, 255, 0.18);
+
+    /* Elevations & Shadows */
+    --shadow-sm: 0 4px 14px rgba(15, 45, 70, 0.05);
+    --shadow-md: 0 12px 35px rgba(15, 45, 70, 0.08);
+    --shadow-lg: 0 20px 55px rgba(4, 34, 45, 0.12);
+
+    /* Border Radii */
+    --border-radius-sm: 8px;
+    --border-radius: 12px;
+    --border-radius-md: 14px;
+    --border-radius-lg: 18px;
+    --border-radius-xl: 20px;
+    --border-radius-pill: 9999px;
+
+    /* Layout & Spacing */
+    --sidebar-width: 255px;
+    --container: 1200px;
+    --transition: 250ms cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    /* Typography */
+    --font-heading: "Manrope", sans-serif;
+    --font-body: "Inter", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Base Elements */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    background: var(--background);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+button, input, select, textarea {
+    font-family: var(--font-body);
+}
+
+/* Universal Focus Ring */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2.5px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Shared Sidebar Brand Icon */
+.sidebar {
+    height: 100vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent !important;
+}
+
+.sidebar-nav {
+    flex: 1 1 auto !important;
+    overflow-y: auto !important;
+    min-height: 0 !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent !important;
+}
+
+.sidebar::-webkit-scrollbar,
+.sidebar-nav::-webkit-scrollbar {
+    width: 5px !important;
+}
+
+.sidebar::-webkit-scrollbar-track,
+.sidebar-nav::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+.sidebar::-webkit-scrollbar-thumb,
+.sidebar-nav::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.22) !important;
+    border-radius: 10px !important;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover,
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.45) !important;
+}
+
+.sidebar .brand-icon {
+    background: linear-gradient(135deg, var(--primary-color), var(--blue-accent)) !important;
+    box-shadow: 0 8px 20px rgba(16, 167, 161, 0.25) !important;
+}
+
+/* Shared Sidebar Nav Active Link */
+.sidebar .nav-item.active {
+    color: #ffffff !important;
+    background: linear-gradient(90deg, rgba(16, 167, 161, 0.25), rgba(16, 167, 161, 0.08)) !important;
+    box-shadow: inset 3px 0 0 var(--primary-color) !important;
+}
+
+/* Shared Topbar Profile Avatar */
+.topbar .profile-avatar {
+    background: linear-gradient(135deg, var(--primary-color), var(--blue-accent)) !important;
+}
+
+/* Shared Buttons */
+.primary-btn,
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--blue-accent)) !important;
+    color: #ffffff !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: 0 8px 18px rgba(16, 167, 161, 0.25) !important;
+    transition: var(--transition) !important;
+}
+
+.primary-btn:hover,
+.btn-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 24px rgba(16, 167, 161, 0.35) !important;
+}
+
+/* Shared Inputs & Focus States */
+.search-box input:focus,
+.form-group input:focus,
+.form-group select:focus,
+.filter-bar select:focus {
+    background: #ffffff !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 4px rgba(16, 167, 161, 0.12) !important;
+}
+
+/* Shared Table Standards */
+table th {
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+table td {
+    font-size: 13.5px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Shared Status Badges */
+.status-badge.success, .status-badge.completed, .status-tag.confirmed, .status-tag.completed, .dock-status-tag.active {
+    background: var(--success-light) !important;
+    color: var(--success-color) !important;
+}
+
+.status-badge.pending, .status-tag.pending, .dock-status-tag.maintenance {
+    background: var(--warning-light) !important;
+    color: var(--warning-color) !important;
+}
+
+.status-badge.failed, .status-badge.cancelled, .status-tag.cancelled, .dock-status-tag.full {
+    background: var(--danger-light) !important;
+    color: var(--danger-color) !important;
+}
+
+/* Shared Logout Button */
+.logout-btn {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    padding: 12px !important;
+    border-radius: var(--border-radius) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: #ff8e8e !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    transition: var(--transition) !important;
+    border: none !important;
+    cursor: pointer !important;
+}
+
+.logout-btn:hover {
+    background: rgba(228, 92, 101, 0.15) !important;
+    color: #ffa3a3 !important;
+}
+
+/* Shared Topbar Header Styling */
+.topbar h1 {
+    font-family: var(--font-heading) !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: var(--text-primary) !important;
+}
+
+.breadcrumb {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: var(--text-muted) !important;
+    margin-bottom: 4px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.page-subtitle {
+    font-size: 13px !important;
+    color: var(--text-muted) !important;
+    margin-top: 2px !important;
+}
+
+/* Shared Notification Button */
+.notification-btn {
+    position: relative !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 14px !important;
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+    font-size: 17px !important;
+    display: grid !important;
+    place-items: center !important;
+    box-shadow: var(--shadow-sm) !important;
+    transition: var(--transition) !important;
+}
+
+.notification-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+.notification-dot {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: var(--danger-color) !important;
+    border: 2px solid #ffffff !important;
+}
+
+/* Shared Profile Component */
+.profile {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    background: #ffffff !important;
+    padding: 6px 14px 6px 6px !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+.profile-avatar {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 10px !important;
+    background: linear-gradient(135deg, var(--primary-color), var(--blue-accent)) !important;
+    color: #ffffff !important;
+    display: grid !important;
+    place-items: center !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+}
+
+.profile-info strong {
+    font-size: 13px !important;
+    color: var(--text-primary) !important;
+}
+
+.profile-info span {
+    font-size: 11px !important;
+    color: var(--text-muted) !important;
+}
+
+/* Shared Spinners */
+.spinner {
+    border-top-color: var(--primary-color) !important;
+}

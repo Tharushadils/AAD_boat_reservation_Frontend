@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaVenture | Account Settings</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <span>AV</span>
+                </div>
+                <div class="brand-text">
+                    <strong>AquaVenture</strong><br>
+                    <small>System Settings</small>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="reservation.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-calendar-check"></i>
+                    <span>Reservations</span>
+                </a>
+                <a href="boat.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-sailboat"></i>
+                    <span>Boat Management</span>
+                </a>
+                <a href="user.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="boat-categories.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-ship"></i>
+                    <span>Boat Categories</span>
+                </a>
+                
+                <a href="dock.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-anchor"></i>
+                    <span>Docks</span>
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
+                
+                <a href="maintenance.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-screwdriver-wrench"></i>
+                    <span>Maintenance Logs</span>
+                </a>
+                <a href="reviews.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-star"></i>
+                    <span>Reviews</span>
+                </a>
+                <a href="add-ons.html" class="nav-item active">
+                    <i class="nav-icon fa-solid fa-puzzle-piece"></i>
+                    <span>Add-on Services</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <button class="logout-btn" id="logoutBtn">
+                    <span>↪</span>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="page-heading">
+                    <div>
+                        <p class="breadcrumb">System / Configuration</p>
+                        <h1>Account Settings</h1>
+                        <p class="page-subtitle">Manage security credentials, legal documentation, and active session
+                            logout.</p>
+                    </div>
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="notification-btn" aria-label="Notifications">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="profile">
+                        <div class="profile-avatar">TH</div>
+                        <div class="profile-info">
+                            <strong>Tharusha</strong>
+                            <span>Administrator</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT -->
+            <section class="content">
+
+                <div class="settings-grid">
+
+                    <!-- CHANGE PASSWORD CARD -->
+                    <div class="settings-card">
+                        <div>
+                            <div class="settings-card-head">
+                                <div class="settings-card-icon cyan">
+                                    <i class="fa-solid fa-key"></i>
+                                </div>
+                                <div>
+                                    <h2>Change Password</h2>
+                                    <p>Update your account security password.</p>
+                                </div>
+                            </div>
+
+                            <form id="changePasswordForm">
+                                <div class="form-group">
+                                    <label for="currentPassword">Current Password</label>
+                                    <div class="input-password-wrapper">
+                                        <input type="password" id="currentPassword" placeholder="••••••••" required>
+                                        <button type="button" class="toggle-password-btn" data-target="currentPassword">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="newPassword">New Password</label>
+                                    <div class="input-password-wrapper">
+                                        <input type="password" id="newPassword" placeholder="••••••••" required>
+                                        <button type="button" class="toggle-password-btn" data-target="newPassword">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm New Password</label>
+                                    <div class="input-password-wrapper">
+                                        <input type="password" id="confirmPassword" placeholder="••••••••" required>
+                                        <button type="button" class="toggle-password-btn" data-target="confirmPassword">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="primary-btn" id="updatePasswordBtn">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                    Update Password
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- LEGAL & POLICY DOCUMENTS CARD -->
+                    <div class="settings-card">
+                        <div>
+                            <div class="settings-card-head">
+                                <div class="settings-card-icon blue">
+                                    <i class="fa-solid fa-file-contract"></i>
+                                </div>
+                                <div>
+                                    <h2>Legal & Privacy Terms</h2>
+                                    <p>Review company policies and terms of service.</p>
+                                </div>
+                            </div>
+
+                            <div class="legal-links-list">
+                                <a href="A4-privacy policy.html" class="legal-link-item" target="_blank">
+                                    <div class="legal-link-info">
+                                        <i class="fa-solid fa-user-shield"></i>
+                                        <div>
+                                            <strong>Privacy Policy</strong>
+                                            <small>Data protection and customer privacy rules</small>
+                                        </div>
+                                    </div>
+                                    <i class="legal-link-arrow fa-solid fa-arrow-right"></i>
+                                </a>
+
+                                <a href="A5-terms of service.html" class="legal-link-item" target="_blank">
+                                    <div class="legal-link-info">
+                                        <i class="fa-solid fa-scale-balanced"></i>
+                                        <div>
+                                            <strong>Terms of Service</strong>
+                                            <small>Boat rental conditions and safety rules</small>
+                                        </div>
+                                    </div>
+                                    <i class="legal-link-arrow fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROFILE OVERVIEW CARD -->
+                    <div class="settings-card">
+                        <div>
+                            <div class="settings-card-head">
+                                <div class="settings-card-icon green">
+                                    <i class="fa-solid fa-user-gear"></i>
+                                </div>
+                                <div>
+                                    <h2>Admin Profile</h2>
+                                    <p>Active system administrator account details.</p>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13.5px;">
+                                <div
+                                    style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
+                                    <span style="color: var(--muted); font-weight: 600;">Full Name:</span>
+                                    <strong>Tharusha Perera</strong>
+                                </div>
+                                <div
+                                    style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
+                                    <span style="color: var(--muted); font-weight: 600;">Role Designation:</span>
+                                    <span
+                                        style="background: rgba(6, 182, 212, 0.12); color: #0891b2; padding: 3px 10px; border-radius: 12px; font-weight: 700; font-size: 11.5px;">ADMINISTRATOR</span>
+                                </div>
+                                <div
+                                    style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
+                                    <span style="color: var(--muted); font-weight: 600;">Email Address:</span>
+                                    <strong>tharusha@aquaventure.com</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span style="color: var(--muted); font-weight: 600;">Account Status:</span>
+                                    <span style="color: #18a873; font-weight: 700;"><i
+                                            class="fa-solid fa-circle-check"></i> Active</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LOGOUT CARD -->
+                    <div class="settings-card">
+                        <div>
+                            <div class="settings-card-head">
+                                <div class="settings-card-icon red">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                </div>
+                                <div>
+                                    <h2>Session Logout</h2>
+                                    <p>End current active session and logout of the system.</p>
+                                </div>
+                            </div>
+
+                            <p style="font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.5;">
+                                Logging out will terminate your current administrative session. You will need to sign in
+                                with your credentials to access management controls again.
+                            </p>
+
+                            <button type="button" class="danger-btn" id="logoutConfirmBtn">
+                                <i class="fa-solid fa-power-off"></i>
+                                Logout Account
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <strong id="toastTitle">Success</strong>
+            <p id="toastMessage">Operation completed successfully.</p>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="settings.js"></script>
+</body>
+
+</html>

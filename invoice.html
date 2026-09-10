@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaVenture | Invoices</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="invoice.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <span>AV</span>
+                </div>
+                <div class="brand-text">
+                    <strong>AquaVenture</strong><br>
+                    <small>Billing Management</small>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="reservation.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-calendar-check"></i>
+                    <span>Reservations</span>
+                </a>
+                <a href="boat.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-sailboat"></i>
+                    <span>Boat Management</span>
+                </a>
+                <a href="user.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="boat-categories.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-ship"></i>
+                    <span>Boat Categories</span>
+                </a>
+                <a href="routes.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-route"></i>
+                    <span>Routes</span>
+                </a>
+                <a href="dock.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-anchor"></i>
+                    <span>Docks</span>
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
+                <a href="invoice.html" class="nav-item active">
+                    <i class="nav-icon fa-solid fa-file-invoice"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="maintenance.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-screwdriver-wrench"></i>
+                    <span>Maintenance Logs</span>
+                </a>
+                <a href="reviews.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-star"></i>
+                    <span>Reviews</span>
+                </a>
+                <a href="add-ons.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-puzzle-piece"></i>
+                    <span>Add-on Services</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <button class="logout-btn" id="logoutBtn">
+                    <span>↪</span>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="page-heading">
+                    <div>
+                        <p class="breadcrumb">Management / Invoices</p>
+                        <h1>Billing & Invoices</h1>
+                        <p class="page-subtitle">Generate, issue, and audit customer billing statements.</p>
+                    </div>
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="notification-btn" aria-label="Notifications">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="profile">
+                        <div class="profile-avatar">TH</div>
+                        <div class="profile-info">
+                            <strong>Tharusha</strong>
+                            <span>Administrator</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT -->
+            <section class="content">
+
+                <!-- STATS -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Total Invoices</span>
+                            <strong id="totalInvoices">0</strong>
+                            <span class="stat-description">Issued invoices</span>
+                        </div>
+                        <div class="stat-icon cyan">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Total Billed</span>
+                            <strong id="totalRevenue">Rs. 0.00</strong>
+                            <span class="stat-description">Invoiced volume</span>
+                        </div>
+                        <div class="stat-icon green">
+                            <i class="fa-solid fa-money-bill-trend-up"></i>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Paid Invoices</span>
+                            <strong id="paidInvoices">0</strong>
+                            <span class="stat-description">Cleared payments</span>
+                        </div>
+                        <div class="stat-icon cyan">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Pending / Overdue</span>
+                            <strong id="pendingInvoices">0</strong>
+                            <span class="stat-description">Awaiting clearance</span>
+                        </div>
+                        <div class="stat-icon orange">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL -->
+                <div class="content-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h2>Invoice Register</h2>
+                            <p>View customer billing statements and issue new invoices.</p>
+                        </div>
+                        <button class="primary-btn" id="generateInvoiceBtn">
+                            <i class="fa-solid fa-plus"></i>
+                            Generate Invoice
+                        </button>
+                    </div>
+
+                    <!-- FILTER BAR -->
+                    <div class="filter-bar">
+                        <div class="search-box">
+                            <i class="search-icon fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="searchInput"
+                                placeholder="Search invoice code, customer name or reservation ID...">
+                        </div>
+
+                        <select id="statusFilter">
+                            <option value="ALL">All Status</option>
+                            <option value="PAID">Paid</option>
+                            <option value="UNPAID">Unpaid</option>
+                            <option value="OVERDUE">Overdue</option>
+                        </select>
+
+                        <button class="filter-btn" id="refreshBtn">
+                            <i class="fa-solid fa-rotate"></i>
+                            Refresh
+                        </button>
+                    </div>
+
+                    <!-- TABLE -->
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Invoice Ref</th>
+                                    <th>Customer Name</th>
+                                    <th>Issue Date</th>
+                                    <th>Due Date</th>
+                                    <th>Total Amount</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="invoiceTableBody">
+                                <!-- Dynamic content -->
+                            </tbody>
+                        </table>
+
+                        <!-- EMPTY STATE -->
+                        <div class="empty-state" id="emptyState" style="display: none;">
+                            <div class="empty-icon">
+                                <i class="fa-solid fa-receipt"></i>
+                            </div>
+                            <h3>No invoices found</h3>
+                            <p>There are no billing records matching your query.</p>
+                        </div>
+
+                        <!-- LOADING STATE -->
+                        <div class="loading-state" id="loadingState">
+                            <div class="spinner"></div>
+                            <span>Loading invoice records...</span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- GENERATE INVOICE MODAL -->
+    <div class="modal-overlay" id="generateModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div>
+                    <h2 id="modalTitle">Generate Invoice</h2>
+                    <p>Enter billing items and customer reservation details.</p>
+                </div>
+                <button class="modal-close" id="closeModalBtn" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="generateForm">
+                <input type="hidden" id="invoiceId">
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="invoiceNumber">Invoice Code</label>
+                        <input type="text" id="invoiceNumber" placeholder="e.g. INV-2026-001" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customerName">Customer Name</label>
+                        <input type="text" id="customerName" placeholder="Customer full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueDate">Issue Date</label>
+                        <input type="date" id="issueDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dueDate">Due Date</label>
+                        <input type="date" id="dueDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="totalAmount">Total Amount (Rs.)</label>
+                        <input type="number" id="totalAmount" step="0.01" placeholder="0.00" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paymentStatus">Payment Status</label>
+                        <select id="paymentStatus">
+                            <option value="PAID">Paid</option>
+                            <option value="UNPAID">Unpaid</option>
+                            <option value="OVERDUE">Overdue</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="secondary-btn" id="cancelModalBtn">Cancel</button>
+                    <button type="submit" class="primary-btn" id="submitBtn">Save Invoice</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <strong id="toastTitle">Success</strong>
+            <p id="toastMessage">Operation completed successfully.</p>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="invoice.js"></script>
+</body>
+
+</html>

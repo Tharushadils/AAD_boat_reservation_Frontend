@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaVenture | Customer Reviews</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="reviews.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <span>AV</span>
+                </div>
+                <div class="brand-text">
+                    <strong>AquaVenture</strong><br>
+                    <small>Feedback & Moderation</small>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="reservation.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-calendar-check"></i>
+                    <span>Reservations</span>
+                </a>
+                <a href="boat.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-sailboat"></i>
+                    <span>Boat Management</span>
+                </a>
+                <a href="user.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="boat-categories.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-ship"></i>
+                    <span>Boat Categories</span>
+                </a>
+                
+                <a href="dock.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-anchor"></i>
+                    <span>Docks</span>
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
+                
+                <a href="maintenance.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-screwdriver-wrench"></i>
+                    <span>Maintenance Logs</span>
+                </a>
+                <a href="reviews.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-star"></i>
+                    <span>Reviews</span>
+                </a>
+                <a href="add-ons.html" class="nav-item active">
+                    <i class="nav-icon fa-solid fa-puzzle-piece"></i>
+                    <span>Add-on Services</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <button class="logout-btn" id="logoutBtn">
+                    <span>↪</span>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="page-heading">
+                    <div>
+                        <p class="breadcrumb">Management / Reviews</p>
+                        <h1>Customer Reviews</h1>
+                        <p class="page-subtitle">Monitor customer feedback, star ratings, and review approvals.</p>
+                    </div>
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="notification-btn" aria-label="Notifications">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="profile">
+                        <div class="profile-avatar">TH</div>
+                        <div class="profile-info">
+                            <strong>Tharusha</strong>
+                            <span>Administrator</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT -->
+            <section class="content">
+
+                <!-- STATS -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Average Rating</span>
+                            <strong id="avgRatingScore">0.0 ★</strong>
+                            <span class="stat-description">Out of 5.0 stars</span>
+                        </div>
+                        <div class="stat-icon amber">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Total Feedback</span>
+                            <strong id="totalReviewCount">0</strong>
+                            <span class="stat-description">Customer testimonials</span>
+                        </div>
+                        <div class="stat-icon teal">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">5-Star Reviews</span>
+                            <strong id="fiveStarCount">0</strong>
+                            <span class="stat-description">Top rating count</span>
+                        </div>
+                        <div class="stat-icon green">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Reviewed Fleet</span>
+                            <strong id="reviewedBoatsCount">0</strong>
+                            <span class="stat-description">Boats with ratings</span>
+                        </div>
+                        <div class="stat-icon blue">
+                            <i class="fa-solid fa-ship"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL -->
+                <div class="content-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h2>Customer Testimonials</h2>
+                            <p>Approve, flag, or moderate trip reviews left by customers.</p>
+                        </div>
+                        <button class="primary-btn" id="addReviewBtn">
+                            <i class="fa-solid fa-plus"></i>
+                            Add Review
+                        </button>
+                    </div>
+
+                    <!-- FILTER BAR -->
+                    <div class="filter-bar">
+                        <div class="search-box">
+                            <i class="search-icon fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="searchInput"
+                                placeholder="Search customer, boat or review comment...">
+                        </div>
+
+                        <select id="ratingFilter">
+                            <option value="ALL">All Ratings</option>
+                            <option value="5">5 Stars</option>
+                            <option value="4">4 Stars</option>
+                            <option value="3">3 Stars</option>
+                            <option value="2">2 Stars</option>
+                            <option value="1">1 Star</option>
+                        </select>
+
+                        <button class="filter-btn" id="refreshBtn">
+                            <i class="fa-solid fa-rotate"></i>
+                            Refresh
+                        </button>
+                    </div>
+
+                    <!-- REVIEWS GRID -->
+                    <div id="reviewsGrid" class="reviews-cards-grid">
+                        <!-- Dynamic review cards -->
+                    </div>
+
+                    <!-- EMPTY STATE -->
+                    <div class="empty-state" id="emptyState" style="display: none;">
+                        <div class="empty-icon">
+                            <i class="fa-solid fa-comment-slash"></i>
+                        </div>
+                        <h3>No reviews found</h3>
+                        <p>There are no customer reviews matching your search.</p>
+                    </div>
+
+                    <!-- LOADING STATE -->
+                    <div class="loading-state" id="loadingState">
+                        <div class="spinner"></div>
+                        <span>Loading customer reviews...</span>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- ADD REVIEW MODAL -->
+    <div class="modal-overlay" id="reviewModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div>
+                    <h2 id="modalTitle">Add Customer Review</h2>
+                    <p>Record a verified customer rating and testimonial.</p>
+                </div>
+                <button class="modal-close" id="closeModalBtn" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="reviewForm">
+                <input type="hidden" id="reviewId">
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="customerName">Customer Name</label>
+                        <input type="text" id="customerName" placeholder="e.g. Ruwan Silva" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="boatName">Vessel / Boat Reviewed</label>
+                        <input type="text" id="boatName" placeholder="e.g. Bentota Speedboat #1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rating">Star Rating (1 - 5)</label>
+                        <select id="rating" required>
+                            <option value="5">5 - Excellent ★★★★★</option>
+                            <option value="4">4 - Very Good ★★★★☆</option>
+                            <option value="3">3 - Good ★★★☆☆</option>
+                            <option value="2">2 - Fair ★★☆☆☆</option>
+                            <option value="1">1 - Poor ★☆☆☆☆</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reviewDate">Review Date</label>
+                        <input type="date" id="reviewDate" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="comment">Review Comment</label>
+                        <textarea id="comment" rows="3" placeholder="Enter customer feedback text..."
+                            required></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="secondary-btn" id="cancelModalBtn">Cancel</button>
+                    <button type="submit" class="primary-btn" id="submitBtn">Save Review</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <strong id="toastTitle">Success</strong>
+            <p id="toastMessage">Operation completed successfully.</p>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="reviews.js"></script>
+</body>
+
+</html>

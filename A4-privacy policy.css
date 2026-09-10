@@ -1,0 +1,177 @@
+/* ==========================================================================
+   Gin Gan Iwura - Privacy Policy Stylesheet (A4-privacy policy.css)
+   ========================================================================== */
+
+/* --- Root Color Variables & Theme Tokens --- */
+:root {
+  --primary: #10a7a1;
+  --primary-glow: #25d2c7;
+  --secondary: #64e4db;
+  --secondary-glow: #087ea4;
+  --bg-dark: #031b27;
+  --bg-dark-alt: #071b2e;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --white: #ffffff;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-main: 'Inter', sans-serif;
+  --font-heading: 'Manrope', sans-serif;
+}
+
+/* --- Base Setup --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* --- Utility Classes --- */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary-glow), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-muted-light {
+  color: var(--text-muted);
+}
+
+/* --- Glassmorphism Card --- */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow: var(--glass-shadow);
+  transition: var(--transition);
+}
+
+/* --- Buttons --- */
+.btn-primary-glow {
+  background: linear-gradient(135deg, var(--secondary-glow), var(--primary-glow));
+  color: var(--white);
+  border: none;
+  border-radius: 30px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 20px rgba(0, 210, 255, 0.35);
+  transition: var(--transition);
+}
+
+.btn-primary-glow:hover {
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 210, 255, 0.55);
+}
+
+.btn-glass-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-border);
+  color: var(--white);
+  border-radius: 30px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: var(--transition);
+}
+
+.btn-glass-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateX(-3px);
+}
+
+/* --- Brand Icon & Floating Animation --- */
+.splash-kayak-icon {
+  color: var(--primary-glow);
+  display: inline-block;
+  filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.4));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* --- Custom Legal Content List Styling --- */
+.legal-content ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.legal-content ul li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.legal-content ul li::before {
+  content: '•';
+  color: var(--primary-glow);
+  font-weight: bold;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0.3rem;
+  top: -0.1rem;
+}
+
+.legal-content strong {
+  color: var(--white);
+}
+
+/* --- Scrollbar Customization --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 210, 255, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 210, 255, 0.5);
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 767.98px) {
+  .legal-wrapper {
+    padding: 70px 12px 30px 12px;
+  }
+
+  .legal-card {
+    padding: 30px 20px;
+    border-radius: 18px;
+  }
+
+  .legal-content h3 {
+    font-size: 1.15rem;
+  }
+}

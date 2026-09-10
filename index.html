@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="AquaVenture - Discover Sri Lanka from the water. Premium kayak and boat adventures across Sri Lanka's beautiful waterways.">
+
+    <title>AquaVenture | Discover Sri Lanka From the Water</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="site-header" id="siteHeader">
+    <nav class="navbar container">
+
+        <a href="#home" class="logo" aria-label="AquaVenture Home">
+            <span class="logo-mark">
+               <img src="Assests/logo aqua.png" alt="">
+            </span>
+            <span class="logo-text">
+                Aqua<span>Venture</span>
+            </span>
+        </a>
+
+        <div class="nav-menu" id="navMenu">
+
+            <a href="#home" class="nav-link active">Home</a>
+
+            <a href="#experiences" class="nav-link">
+                Experiences
+            </a>
+
+            <a href="#destinations" class="nav-link">
+                Destinations
+            </a>
+
+            <a href="#about" class="nav-link">
+                About
+            </a>
+
+            <a href="#contact" class="nav-link">
+                Contact
+            </a>
+
+            <div class="mobile-nav-actions">
+                <a href="A2-login.html" class="nav-login">Login</a>
+
+                <a href="reservation.html" class="nav-book">
+                    Book Now
+                </a>
+            </div>
+
+        </div>
+
+        <div class="nav-actions">
+
+            <a href="A2-login.html" class="nav-login">
+                Login
+            </a>
+
+            <a href="reservation.html" class="nav-book">
+                Book Now
+            </a>
+
+        </div>
+
+        <button class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </nav>
+</header>
+
+
+<main>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-background"></div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-particles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="container hero-content">
+
+        <div class="hero-copy reveal">
+
+            <div class="eyebrow">
+                <span class="eyebrow-line"></span>
+                <span>SRI LANKA'S WATER ADVENTURES</span>
+            </div>
+
+            <h1>
+                Discover Sri Lanka
+                <span>From the Water</span>
+            </h1>
+
+            <p>
+                Explore breathtaking rivers, hidden waterways and
+                unforgettable adventures with AquaVenture.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#experiences" class="btn btn-primary">
+                    Explore Experiences
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <a href="reservation.html" class="btn btn-outline">
+                    Book Your Adventure
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Booking Card -->
+
+        <div class="booking-card reveal">
+
+            <div class="booking-header">
+                <div>
+                    <span class="booking-label">PLAN YOUR ADVENTURE</span>
+                    <h3>Find your experience</h3>
+                </div>
+
+                <div class="booking-icon">
+                    <i class="fa-solid fa-compass"></i>
+                </div>
+            </div>
+
+            <div class="booking-fields">
+
+                <div class="booking-field">
+                    <label for="location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Location
+                    </label>
+
+                    <select id="location">
+                        <option value="">Any destination</option>
+                        <option value="bentota">Bentota</option>
+                        <option value="balapitiya">Balapitiya</option>
+                        <option value="hikkaduwa">Hikkaduwa</option>
+                        <option value="baddegama">Baddegama River</option>
+                    </select>
+                </div>
+
+                <div class="booking-field">
+                    <label for="bookingDate">
+                        <i class="fa-regular fa-calendar"></i>
+                        Date
+                    </label>
+
+                    <input type="date" id="bookingDate">
+                </div>
+
+                <div class="booking-field">
+                    <label for="guests">
+                        <i class="fa-solid fa-users"></i>
+                        Guests
+                    </label>
+
+                    <select id="guests">
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5 Guests</option>
+                        <option value="6">6+ Guests</option>
+                    </select>
+                </div>
+
+                <button class="booking-search" id="bookingSearch">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    Explore
+                </button>
+
+            </div>
+
+            <div class="booking-note">
+                <i class="fa-solid fa-shield-halved"></i>
+                Safe adventures · Experienced guides · Easy booking
+            </div>
+
+        </div>
+
+    </div>
+
+    <a href="#stats" class="hero-scroll">
+        <span>Scroll to explore</span>
+        <i class="fa-solid fa-arrow-down"></i>
+    </a>
+
+</section>
+
+
+<!-- =========================================================
+     STATS
+========================================================= -->
+
+<section class="stats-section" id="stats">
+
+    <div class="container stats-grid">
+
+        <div class="stat-item reveal">
+            <strong data-count="4">4+</strong>
+            <span>Destinations</span>
+        </div>
+
+        <div class="stat-item reveal">
+            <strong data-count="10">10+</strong>
+            <span>Adventure Experiences</span>
+        </div>
+
+        <div class="stat-item reveal">
+            <strong data-count="500">500+</strong>
+            <span>Happy Explorers</span>
+        </div>
+
+        <div class="stat-item reveal">
+            <strong>100%</strong>
+            <span>Adventure</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     EXPERIENCES
+========================================================= -->
+
+<section class="section experiences-section" id="experiences">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow dark">
+                <span class="eyebrow-line"></span>
+                <span>WHAT WE OFFER</span>
+            </div>
+
+            <div class="heading-row">
+
+                <h2>
+                    Adventure
+                    <span>Awaits</span>
+                </h2>
+
+                <p>
+                    From peaceful paddles through mangroves to
+                    unforgettable river journeys, discover an experience
+                    made for every kind of explorer.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="experience-grid">
+
+            <!-- Card 01 -->
+
+            <article class="experience-card experience-large reveal">
+
+                <div class="card-image">
+
+                    <img
+                        src="Assests/kayak.jpg"
+                        alt="Person kayaking on beautiful water"
+                        loading="lazy">
+
+                    <div class="card-overlay"></div>
+
+                    <span class="experience-number">01</span>
+
+                    <div class="experience-icon">
+                        <i class="fa-solid fa-person-swimming"></i>
+                    </div>
+
+                </div>
+
+                <div class="experience-content">
+
+                    <h3>Kayaking</h3>
+
+                    <p>
+                        Paddle through calm waters and discover
+                        Sri Lanka's hidden natural beauty.
+                    </p>
+
+                    <a href="reservation.html" class="learn-more">
+                        Learn More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- Card 02 -->
+
+            <article class="experience-card reveal">
+
+                <div class="card-image">
+
+                    <img
+                        src="Assests/river adventure.jpg"
+                        alt="Natural landscape beside water"
+                        loading="lazy">
+
+                    <div class="card-overlay"></div>
+
+                    <span class="experience-number">02</span>
+
+                    <div class="experience-icon">
+                        <i class="fa-solid fa-water"></i>
+                    </div>
+
+                </div>
+
+                <div class="experience-content">
+
+                    <h3>River Adventures</h3>
+
+                    <p>
+                        Experience scenic waterways and peaceful
+                        river journeys.
+                    </p>
+
+                    <a href="reservation.html" class="learn-more">
+                        Learn More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- Card 03 -->
+
+            <article class="experience-card reveal">
+
+                <div class="card-image">
+
+                    <img
+                        src="Assests/group tour.jpg"
+                        alt="Group enjoying an outdoor adventure"
+                        loading="lazy">
+
+                    <div class="card-overlay"></div>
+
+                    <span class="experience-number">03</span>
+
+                    <div class="experience-icon">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+
+                </div>
+
+                <div class="experience-content">
+
+                    <h3>Group Tours</h3>
+
+                    <p>
+                        Create unforgettable memories with friends,
+                        family and your team.
+                    </p>
+
+                    <a href="reservation.html" class="learn-more">
+                        Learn More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- Card 04 -->
+
+            <article class="experience-card experience-wide reveal">
+
+                <div class="card-image">
+
+                    <img
+                        src="Assests/explore.jpg"
+                        alt="Beautiful tropical nature"
+                        loading="lazy">
+
+                    <div class="card-overlay"></div>
+
+                    <span class="experience-number">04</span>
+
+                    <div class="experience-icon">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+
+                </div>
+
+                <div class="experience-content">
+
+                    <h3>Nature Exploration</h3>
+
+                    <p>
+                        Get closer to Sri Lanka's incredible wildlife,
+                        wetlands and tropical landscapes.
+                    </p>
+
+                    <a href="reservation.html" class="learn-more">
+                        Learn More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DESTINATIONS
+========================================================= -->
+
+<section class="section destinations-section" id="destinations">
+
+    <div class="container">
+
+        <div class="section-heading centered reveal">
+
+            <div class="eyebrow dark">
+                <span class="eyebrow-line"></span>
+                <span>EXPLORE SRI LANKA</span>
+            </div>
+
+            <h2>
+                Find Your
+                <span>Waterway</span>
+            </h2>
+
+            <p>
+                Journey through some of Sri Lanka's most beautiful
+                coastal and inland waterways.
+            </p>
+
+        </div>
+
+
+        <div class="destination-grid">
+
+            <!-- Bentota -->
+
+            <article class="destination-card destination-tall reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=85"
+                    alt="Bentota tropical coastline"
+                    loading="lazy">
+
+                <div class="destination-overlay"></div>
+
+                <div class="destination-content">
+
+                    <span class="destination-location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Southern Coast
+                    </span>
+
+                    <h3>Bentota</h3>
+
+                    <p>
+                        Tropical waterways, calm lagoons and
+                        unforgettable coastal adventures.
+                    </p>
+
+                    <a href="reservation.html" class="destination-link">
+                        Explore destination
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- Balapitiya -->
+
+            <article class="destination-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1000&q=85"
+                    alt="Tropical landscape"
+                    loading="lazy">
+
+                <div class="destination-overlay"></div>
+
+                <div class="destination-content">
+
+                    <span class="destination-location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Southern Province
+                    </span>
+
+                    <h3>Balapitiya</h3>
+
+                    <p>
+                        Discover serene waterways and lush mangrove
+                        landscapes.
+                    </p>
+
+                    <a href="reservation.html" class="destination-link">
+                        Explore destination
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- Hikkaduwa -->
+
+            <article class="destination-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1505881502353-a1986add3762?auto=format&fit=crop&w=1000&q=85"
+                    alt="Sri Lankan coastal scenery"
+                    loading="lazy">
+
+                <div class="destination-overlay"></div>
+
+                <div class="destination-content">
+
+                    <span class="destination-location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Galle District
+                    </span>
+
+                    <h3>Hikkaduwa</h3>
+
+                    <p>
+                        Combine tropical coastal beauty with exciting
+                        water experiences.
+                    </p>
+
+                    <a href="reservation.html" class="destination-link">
+                        Explore destination
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- Baddegama -->
+
+            <article class="destination-card destination-wide reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=85"
+                    alt="Green tropical river environment"
+                    loading="lazy">
+
+                <div class="destination-overlay"></div>
+
+                <div class="destination-content">
+
+                    <span class="destination-location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Galle District
+                    </span>
+
+                    <h3>Baddegama River</h3>
+
+                    <p>
+                        A peaceful escape surrounded by lush greenery,
+                        flowing water and untouched nature.
+                    </p>
+
+                    <a href="reservation.html" class="destination-link">
+                        Explore destination
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     WHY AQUAVENTURE
+========================================================= -->
+
+<section class="section why-section">
+
+    <div class="container">
+
+        <div class="why-layout">
+
+            <div class="why-content reveal">
+
+                <div class="eyebrow dark">
+                    <span class="eyebrow-line"></span>
+                    <span>THE AQUAVENTURE DIFFERENCE</span>
+                </div>
+
+                <h2>
+                    Why Adventure
+                    <span>With Us?</span>
+                </h2>
+
+                <p>
+                    We believe the best way to experience Sri Lanka
+                    is to slow down, get on the water and see the
+                    island from a completely different perspective.
+                </p>
+
+                <a href="#about" class="text-link">
+                    Discover our story
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="benefits-grid">
+
+                <div class="benefit-card reveal">
+
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+
+                    <h3>Experienced Guides</h3>
+
+                    <p>
+                        Local experts who know every waterway
+                        and help you make the most of your journey.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit-card reveal">
+
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+
+                    <h3>Safety First</h3>
+
+                    <p>
+                        Your safety comes first with trained guides
+                        and carefully managed experiences.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit-card reveal">
+
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+
+                    <h3>Flexible Booking</h3>
+
+                    <p>
+                        Find an experience that fits your schedule
+                        with simple and convenient reservations.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit-card reveal">
+
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-mountain-sun"></i>
+                    </div>
+
+                    <h3>Beautiful Locations</h3>
+
+                    <p>
+                        Explore handpicked waterways surrounded
+                        by Sri Lanka's natural beauty.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section class="section about-section" id="about">
+
+    <div class="container">
+
+        <div class="about-layout">
+
+            <div class="about-images reveal">
+
+                <div class="about-main-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1200&q=85"
+                        alt="Beautiful tropical waterway"
+                        loading="lazy">
+
+                </div>
+
+                <div class="about-small-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=700&q=85"
+                        alt="Sri Lankan nature"
+                        loading="lazy">
+
+                </div>
+
+                <div class="about-experience-badge">
+
+                    <strong>10+</strong>
+
+                    <span>
+                        Years of
+                        <br>
+                        Adventure
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-content reveal">
+
+                <div class="eyebrow dark">
+                    <span class="eyebrow-line"></span>
+                    <span>OUR STORY</span>
+                </div>
+
+                <h2>
+                    More Than A
+                    <span>Boat Ride</span>
+                </h2>
+
+                <p class="about-lead">
+                    AquaVenture was created for people who want to
+                    experience Sri Lanka beyond the usual tourist path.
+                </p>
+
+                <p>
+                    Our adventures take you into the heart of the island's
+                    beautiful waterways, where mangroves, rivers, wildlife
+                    and local landscapes come together.
+                </p>
+
+                <p>
+                    Whether you're looking for a peaceful morning paddle,
+                    a group adventure or a memorable day on the water,
+                    we're here to make every journey special.
+                </p>
+
+                <div class="about-signature">
+                    <div class="signature-icon">
+                        <img src="Assests/logo aqua.png" alt="">
+                    </div>
+
+                    <div>
+                        <strong>AquaVenture</strong>
+                        <span>Adventure starts here.</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TESTIMONIALS
+========================================================= -->
+
+<section class="section testimonials-section">
+
+    <div class="container">
+
+        <div class="section-heading centered reveal">
+
+            <div class="eyebrow">
+                <span class="eyebrow-line"></span>
+                <span>FROM OUR EXPLORERS</span>
+            </div>
+
+            <h2>
+                Stories From
+                <span>The Water</span>
+            </h2>
+
+            <p>
+                Real adventures create memories that stay with you.
+            </p>
+
+        </div>
+
+
+        <div class="testimonial-grid">
+
+            <article class="testimonial-card reveal">
+
+                <div class="testimonial-top">
+
+                    <div class="avatar">
+                        AS
+                    </div>
+
+                    <div class="customer">
+
+                        <strong>Amelia Smith</strong>
+
+                        <span>United Kingdom</span>
+
+                    </div>
+
+                    <div class="quote-icon">
+                        <i class="fa-solid fa-quote-right"></i>
+                    </div>
+
+                </div>
+
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+                <p>
+                    "One of the highlights of our Sri Lankan trip.
+                    The river was beautiful and our guide made the
+                    whole experience feel effortless."
+                </p>
+
+            </article>
+
+
+            <article class="testimonial-card featured reveal">
+
+                <div class="testimonial-top">
+
+                    <div class="avatar">
+                        DK
+                    </div>
+
+                    <div class="customer">
+
+                        <strong>Dilan Kumar</strong>
+
+                        <span>Colombo, Sri Lanka</span>
+
+                    </div>
+
+                    <div class="quote-icon">
+                        <i class="fa-solid fa-quote-right"></i>
+                    </div>
+
+                </div>
+
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+                <p>
+                    "A fantastic experience from start to finish.
+                    Everything was organized perfectly and the
+                    scenery around the river was incredible."
+                </p>
+
+            </article>
+
+
+            <article class="testimonial-card reveal">
+
+                <div class="testimonial-top">
+
+                    <div class="avatar">
+                        JM
+                    </div>
+
+                    <div class="customer">
+
+                        <strong>James Miller</strong>
+
+                        <span>Australia</span>
+
+                    </div>
+
+                    <div class="quote-icon">
+                        <i class="fa-solid fa-quote-right"></i>
+                    </div>
+
+                </div>
+
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+                <p>
+                    "Beautiful location, friendly team and an
+                    unforgettable kayaking adventure. Definitely
+                    something I'd do again."
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL CTA
+========================================================= -->
+
+<section class="cta-section">
+
+    <div class="cta-background"></div>
+
+    <div class="cta-overlay"></div>
+
+    <div class="container cta-content reveal">
+
+        <div class="cta-icon">
+            <i class="fa-solid fa-water"></i>
+        </div>
+
+        <span class="cta-label">
+            YOUR NEXT JOURNEY AWAITS
+        </span>
+
+        <h2>
+            Your Next Adventure
+            <span>Starts Here</span>
+        </h2>
+
+        <p>
+            Ready to experience Sri Lanka from a whole new perspective?
+        </p>
+
+        <a href="reservation.html" class="btn btn-light">
+            Book Your Adventure
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer" id="contact">
+
+    <div class="container">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <a href="#home" class="logo">
+
+                    <span class="logo-mark">
+                        <img src="Assests/logo aqua.png" alt="">
+                    </span>
+
+                    <span class="logo-text">
+                        Aqua<span>Venture</span>
+                    </span>
+
+                </a>
+
+                <p>
+                    Discover Sri Lanka from the water.
+                    Unforgettable journeys, beautiful places
+                    and adventures worth remembering.
+                </p>
+
+                <div class="social-links">
+
+                    <a href="#" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#" aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+
+                    <a href="#" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Explore</h4>
+
+                <a href="#home">Home</a>
+                <a href="#experiences">Experiences</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#about">About Us</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Destinations</h4>
+
+                <a href="#destinations">Bentota</a>
+                <a href="#destinations">Balapitiya</a>
+                <a href="#destinations">Hikkaduwa</a>
+                <a href="#destinations">Baddegama River</a>
+
+            </div>
+
+
+            <div class="footer-column contact-column">
+
+                <h4>Get In Touch</h4>
+
+                <a href="tel:+94911234567">
+                    <i class="fa-solid fa-phone"></i>
+                    +94 91 123 4567
+                </a>
+
+                <a href="mailto:hello@aquaventure.lk">
+                    <i class="fa-solid fa-envelope"></i>
+                    hello@aquaventure.lk
+                </a>
+
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Southern Province, Sri Lanka
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 AquaVenture – Pearl Corporation. All rights reserved.<br>
+Designed & Maintained by Sofengiee | Pearl Corporation.
+            </span>
+
+            <div class="footer-legal">
+                <a href="A4-privacy policy.html">Privacy Policy</a>
+                <a href="A5-terms of service.html">Terms of Service</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- BACK TO TOP -->
+
+<button class="back-to-top"
+        id="backToTop"
+        aria-label="Back to top">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast">
+
+    <div class="toast-icon">
+        <i class="fa-solid fa-check"></i>
+    </div>
+
+    <div>
+        <strong>Adventure search</strong>
+        <span>Let's find the perfect experience for you.</span>
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

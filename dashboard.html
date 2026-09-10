@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaVenture | Admin Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <span>AV</span>
+                </div>
+                <div class="brand-text">
+                    <strong>AquaVenture</strong><br>
+                    <small>Adventure Management</small>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="reservation.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-calendar-check"></i>
+                    <span>Reservations</span>
+                </a>
+                <a href="boat.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-sailboat"></i>
+                    <span>Boat Management</span>
+                </a>
+                <a href="user.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="boat-categories.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-ship"></i>
+                    <span>Boat Categories</span>
+                </a>
+                
+                <a href="dock.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-anchor"></i>
+                    <span>Docks</span>
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
+                
+                <a href="maintenance.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-screwdriver-wrench"></i>
+                    <span>Maintenance Logs</span>
+                </a>
+                <a href="reviews.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-star"></i>
+                    <span>Reviews</span>
+                </a>
+                <a href="add-ons.html" class="nav-item active">
+                    <i class="nav-icon fa-solid fa-puzzle-piece"></i>
+                    <span>Add-on Services</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <button class="logout-btn" id="logoutBtn">
+                    <span>↪</span>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="page-heading">
+                    <div>
+                        <p class="breadcrumb">Control Panel / Overview</p>
+                        <h1>Admin Dashboard</h1>
+                        <p class="page-subtitle">Welcome back! Real-time operations & boat reservation overview.</p>
+                    </div>
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="notification-btn" aria-label="Notifications">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="profile">
+                        <div class="profile-avatar">TH</div>
+                        <div class="profile-info">
+                            <strong>Tharusha</strong>
+                            <span>Administrator</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT -->
+            <section class="content">
+
+                <!-- HERO WELCOME BANNER -->
+                <div class="hero-welcome-card">
+                    <div class="hero-welcome-text">
+                        <h2>AquaVenture Fleet Control Center</h2>
+                        <p>Monitor customer bookings, revenue growth, boat category availability, and maintenance logs
+                            in one unified workspace.</p>
+                    </div>
+                    <div class="quick-action-btns">
+                        <a href="reservation.html" class="hero-btn">
+                            <i class="fa-solid fa-calendar-plus"></i>
+                            New Booking
+                        </a>
+                        <a href="index.html" class="hero-btn secondary" target="_blank">
+                            <i class="fa-solid fa-globe"></i>
+                            Visit Storefront
+                        </a>
+                    </div>
+                </div>
+
+                <!-- METRICS GRID -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <span class="metric-label">Total Revenue</span>
+                            <strong id="dashTotalRevenue">Rs. 0.00</strong>
+                            <span class="trend-badge"><i class="fa-solid fa-arrow-trend-up"></i> System Revenue</span>
+                        </div>
+                        <div class="metric-icon blue">
+                            <i class="fa-solid fa-money-bill-wave"></i>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <span class="metric-label">Total Reservations</span>
+                            <strong id="dashTotalReservations">0</strong>
+                            <span class="trend-badge"><i class="fa-solid fa-calendar-check"></i> Bookings</span>
+                        </div>
+                        <div class="metric-icon teal">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <span class="metric-label">Registered Users</span>
+                            <strong id="dashTotalUsers">0</strong>
+                            <span class="trend-badge"><i class="fa-solid fa-users"></i> System Accounts</span>
+                        </div>
+                        <div class="metric-icon indigo">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <span class="metric-label">Dock Stations</span>
+                            <strong id="dashTotalDocks">0</strong>
+                            <span class="trend-badge"><i class="fa-solid fa-anchor"></i> Active Docks</span>
+                        </div>
+                        <div class="metric-icon orange">
+                            <i class="fa-solid fa-anchor"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DASHBOARD GRID -->
+                <div class="dashboard-grid">
+
+                    <!-- LEFT: RECENT RESERVATIONS PANEL -->
+                    <div class="panel-card">
+                        <div class="panel-head">
+                            <h3>Recent Reservations</h3>
+                            <a href="reservation.html" class="view-all-link">View All <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Code</th>
+                                        <th>Customer</th>
+                                        <th>Boat</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dashReservationBody">
+                                    <!-- Dynamic Content -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: QUICK ACCESS & ACTIVITY -->
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+
+                        <!-- SHORTCUTS -->
+                        <div class="panel-card">
+                            <div class="panel-head">
+                                <h3>Quick Shortcuts</h3>
+                            </div>
+                            <div class="shortcuts-grid">
+                                <a href="user.html" class="shortcut-card">
+                                    <div class="shortcut-icon"><i class="fa-solid fa-user-plus"></i></div>
+                                    <div>
+                                        <strong>Users</strong>
+                                        <small>Directory</small>
+                                    </div>
+                                </a>
+
+                                <a href="boat-categories.html" class="shortcut-card">
+                                    <div class="shortcut-icon"><i class="fa-solid fa-ship"></i></div>
+                                    <div>
+                                        <strong>Boat Types</strong>
+                                        <small>Classifications</small>
+                                    </div>
+                                </a>
+
+                                <a href="routes.html" class="shortcut-card">
+                                    <div class="shortcut-icon"><i class="fa-solid fa-route"></i></div>
+                                    <div>
+                                        <strong>Routes</strong>
+                                        <small>Itineraries</small>
+                                    </div>
+                                </a>
+
+                                <a href="payments.html" class="shortcut-card">
+                                    <div class="shortcut-icon"><i class="fa-solid fa-credit-card"></i></div>
+                                    <div>
+                                        <strong>Payments</strong>
+                                        <small>Transactions</small>
+                                    </div>
+                                </a>
+
+                                <a href="maintenance.html" class="shortcut-card">
+                                    <div class="shortcut-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                                    <div>
+                                        <strong>Maintenance</strong>
+                                        <small>Service Logs</small>
+                                    </div>
+                                </a>
+
+                                <a href="add-ons.html" class="shortcut-card">
+                                    <div class="shortcut-icon"><i class="fa-solid fa-puzzle-piece"></i></div>
+                                    <div>
+                                        <strong>Add-ons</strong>
+                                        <small>Gear & Extras</small>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- SYSTEM STATUS -->
+                        <div class="panel-card">
+                            <div class="panel-head">
+                                <h3>System Health</h3>
+                            </div>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-dot" style="background: #18a873;"></div>
+                                    <div class="activity-content">
+                                        <p><strong>REST API Gateway</strong></p>
+                                        <span class="activity-time">Connected to localhost:8080</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-dot" style="background: #10a7a1;"></div>
+                                    <div class="activity-content">
+                                        <p><strong>Fleet Management Engine</strong></p>
+                                        <span class="activity-time">All modules operational</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <strong id="toastTitle">Success</strong>
+            <p id="toastMessage">Operation completed successfully.</p>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

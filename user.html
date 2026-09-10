@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaVenture | User Management</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <span>AV</span>
+                </div>
+                <div class="brand-text">
+                    <strong>AquaVenture</strong>
+                    <small>User Management</small>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="reservation.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-calendar-check"></i>
+                    <span>Reservations</span>
+                </a>
+                <a href="boat.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-sailboat"></i>
+                    <span>Boat Management</span>
+                </a>
+                <a href="user.html" class="nav-item active">
+                    <i class="nav-icon fa-solid fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="boat-categories.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-ship"></i>
+                    <span>Boat Categories</span>
+                </a>
+                <a href="routes.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-route"></i>
+                    <span>Routes</span>
+                </a>
+                <a href="dock.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-anchor"></i>
+                    <span>Docks</span>
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
+                <a href="invoice.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-file-invoice"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="maintenance.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-screwdriver-wrench"></i>
+                    <span>Maintenance Logs</span>
+                </a>
+                <a href="reviews.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-star"></i>
+                    <span>Reviews</span>
+                </a>
+                <a href="add-ons.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-puzzle-piece"></i>
+                    <span>Add-on Services</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="nav-icon fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <button class="logout-btn" id="logoutBtn">
+                    <span>↪</span>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- ================= MAIN ================= -->
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="page-heading">
+                    <div>
+                        <p class="breadcrumb">Management / Users</p>
+                        <h1>User Directory</h1>
+                        <p class="page-subtitle">Manage system accounts, customer profiles, and administrator
+                            privileges.</p>
+                    </div>
+                </div>
+
+                <div class="topbar-actions">
+
+                    <div class="profile">
+                        <div class="profile-avatar">TH</div>
+                        <div class="profile-info">
+                            <strong>Tharusha</strong> <!--change krnn one-->
+                            <span>Administrator</span> <!--change krnn one-->
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ================= CONTENT ================= -->
+            <section class="content">
+
+                <!-- STATS -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Total Users</span>
+                            <strong id="totalUsers">0</strong>
+                            <span class="stat-description">Registered accounts</span>
+                        </div>
+                        <div class="stat-icon indigo">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Customers</span>
+                            <strong id="customerCount">0</strong>
+                            <span class="stat-description">Active clients</span>
+                        </div>
+                        <div class="stat-icon teal">
+                            <i class="fa-solid fa-user-tag"></i>
+                        </div>
+                    </div>
+
+
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Administrators</span>
+                            <strong id="adminCount">0</strong>
+                            <span class="stat-description">Full system access</span>
+                        </div>
+                        <div class="stat-icon orange">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTENT PANEL -->
+                <div class="content-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h2>All User Accounts</h2>
+                            <p>Search, filter, edit roles, and oversee system users.</p>
+                        </div>
+                        <button class="primary-btn" id="addUserBtn">
+                            <i class="fa-solid fa-plus"></i>
+                            Add User
+                        </button>
+                    </div>
+
+                    <!-- FILTER BAR -->
+                    <div class="filter-bar">
+                        <div class="search-box">
+                            <i class="search-icon fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="searchInput" placeholder="Search name, username or email...">
+                        </div>
+
+                        <select id="roleFilter">
+                            <option value="ALL">All Roles</option>
+                            <option value="CUSTOMER">Customer</option>
+                            <option value="ADMIN">Admin</option>
+                        </select>
+
+                        <button class="filter-btn" id="refreshBtn">
+                            <i class="fa-solid fa-rotate"></i>
+                            Refresh
+                        </button>
+                    </div>
+
+                    <!-- TABLE -->
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>User Profile</th>
+                                    <th>Email Address</th>
+                                    <th>Contact Number</th>
+                                    <th>Access Role</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="userTableBody">
+                                <!-- Dynamic content -->
+                            </tbody>
+                        </table>
+
+                        <!-- EMPTY STATE -->
+                        <div class="empty-state" id="emptyState" style="display: none;">
+                            <div class="empty-icon">
+                                <i class="fa-solid fa-user-slash"></i>
+                            </div>
+                            <h3>No users found</h3>
+                            <p>There are no user accounts matching your criteria.</p>
+                        </div>
+
+                        <!-- LOADING STATE -->
+                        <div class="loading-state" id="loadingState">
+                            <div class="spinner"></div>
+                            <span>Loading user directory...</span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- ================= USER FORM MODAL ================= -->
+    <div class="modal-overlay" id="userModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div>
+                    <h2 id="modalTitle">Add New User</h2>
+                    <p>Enter profile details and select access permissions.</p>
+                </div>
+                <button class="modal-close" id="closeModalBtn" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="userForm">
+                <input type="hidden" id="userId">
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="e.g. tharusha99" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" placeholder="e.g. Tharusha Perera" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="e.g. tharusha@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactNumber">Contact Number</label>
+                        <input type="text" id="contactNumber" placeholder="e.g. +94 77 123 4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="••••••••">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">User Role</label>
+                        <select id="role">
+                            <option value="CUSTOMER">Customer</option>
+                            <option value="ADMIN">Admin</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="secondary-btn" id="cancelModalBtn">Cancel</button>
+                    <button type="submit" class="primary-btn" id="saveUserBtn">Save User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= DELETE CONFIRMATION MODAL ================= -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal" style="max-width: 440px; text-align: center;">
+            <div style="font-size: 48px; color: var(--red); margin-bottom: 12px;">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h2 style="margin-bottom: 8px;">Delete User?</h2>
+            <p style="color: var(--muted); font-size: 13px; margin-bottom: 24px;">
+                Are you sure you want to remove <strong id="deleteUserName">this user</strong>? This action cannot be
+                undone.
+            </p>
+            <div class="modal-footer" style="justify-content: center;">
+                <button type="button" class="secondary-btn" id="cancelDeleteBtn">Cancel</button>
+                <button type="button" class="danger-btn" id="confirmDeleteBtn">Delete User</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TOAST NOTIFICATION ================= -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <strong id="toastTitle">Success</strong>
+            <p id="toastMessage">Operation completed successfully.</p>
+        </div>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="user.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+/* ==========================================================================
+   Gin Gan Iwura - Login Page Stylesheet (A2-login.css)
+   ========================================================================== */
+
+/* --- Root Color Variables & Theme Tokens --- */
+:root {
+  --primary: #10a7a1;
+  --primary-glow: #25d2c7;
+  --secondary: #64e4db;
+  --secondary-glow: #087ea4;
+  --bg-dark: #031b27;
+  --bg-dark-alt: #071b2e;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --white: #ffffff;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-main: 'Inter', sans-serif;
+  --font-heading: 'Manrope', sans-serif;
+}
+
+/* --- Base Setup --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* --- Typography Helpers --- */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary-glow), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-muted-light {
+  color: var(--text-muted);
+}
+
+.fs-7 {
+  font-size: 0.85rem;
+}
+
+/* --- Reusable Glassmorphism Card --- */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow: var(--glass-shadow);
+  transition: var(--transition);
+}
+
+/* --- Buttons --- */
+.btn-primary-glow {
+  background: linear-gradient(135deg, var(--secondary-glow), var(--primary-glow));
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 20px rgba(0, 210, 255, 0.35);
+  transition: var(--transition);
+}
+
+.btn-primary-glow:hover {
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 210, 255, 0.55);
+}
+
+.btn-primary-glow:active {
+  transform: translateY(0);
+}
+
+.btn-glass-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-border);
+  color: var(--white);
+  border-radius: 30px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: var(--transition);
+}
+
+.btn-glass-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateX(-3px);
+}
+
+/* --- Form Control Tweaks --- */
+.form-control-custom:focus + .input-icon,
+.input-group-custom:focus-within .input-icon {
+  color: var(--primary-glow);
+  text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+}
+
+.form-check-input:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 0.25rem rgba(0, 242, 254, 0.25);
+}
+
+/* --- Kayak Brand Icon Styling --- */
+.splash-kayak-icon {
+  color: var(--primary-glow);
+  display: inline-block;
+  filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.4));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 575.98px) {
+  .auth-card {
+    padding: 30px 20px;
+    border-radius: 20px;
+  }
+}
