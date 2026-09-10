@@ -447,11 +447,8 @@
         // =========================================================
         // COMMON API REQUEST FUNCTION
         // =========================================================
-        //
-        // මෙතනින් පස්සේ protected API calls කරනකොට
-        // Authorization Bearer Token එක automatically යනවා.
-        //
-        // =========================================================
+        
+    
 
         function apiRequest(url, method = "GET", data = null) {
 
@@ -459,7 +456,7 @@
             const token = localStorage.getItem("JWT");
 
 
-            // Request headers
+            
             const headers = {
 
                 "Content-Type": "application/json"
@@ -467,7 +464,7 @@
             };
 
 
-            // Token තියෙනවා නම් Bearer Token එක automatically add කරනවා
+            
             if (token) {
 
                 headers["Authorization"] = "Bearer " + token;
@@ -489,7 +486,7 @@
             };
 
 
-            // Data තියෙනවා නම් request body එකට add කරනවා
+            
             if (data !== null) {
 
                 settings.data = JSON.stringify(data);
@@ -497,7 +494,7 @@
             }
 
 
-            // Return AJAX request
+            
             return $.ajax(settings);
 
         }
@@ -534,7 +531,6 @@
             const token = localStorage.getItem("JWT");
 
 
-            // Token නැත්නම් login page එකට යවනවා
             if (!token) {
 
                 window.location.href = "A2-login.html";

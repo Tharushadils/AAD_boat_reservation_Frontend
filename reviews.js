@@ -4,6 +4,7 @@
 
 const API_URL = "http://localhost:8080/api/reviews";
 
+// DOM Elements
 const reviewsGrid = document.getElementById("reviewsGrid");
 const loadingState = document.getElementById("loadingState");
 const emptyState = document.getElementById("emptyState");
@@ -25,12 +26,13 @@ const ratingSelect = document.getElementById("rating");
 const reviewDateInput = document.getElementById("reviewDate");
 const commentInput = document.getElementById("comment");
 
-// Stats
+// Stats Elements
 const avgRatingScoreEl = document.getElementById("avgRatingScore");
 const totalReviewCountEl = document.getElementById("totalReviewCount");
 const fiveStarCountEl = document.getElementById("fiveStarCount");
 const reviewedBoatsCountEl = document.getElementById("reviewedBoatsCount");
 
+// UI Elements
 const mobileMenuBtn = document.getElementById("mobileMenuBtn");
 const sidebar = document.querySelector(".sidebar");
 const logoutBtn = document.getElementById("logoutBtn");
@@ -45,6 +47,20 @@ document.addEventListener("DOMContentLoaded", () => {
     loadReviews();
     setupEventListeners();
 });
+
+/**
+ * Generates required headers including JWT Authorization token
+ */
+function getHeaders() {
+    const token = localStorage.getItem("JWT") || localStorage.getItem("jwtToken");
+    const headers = {
+        "Content-Type": "application/json"
+    };
+    if (token) {
+        headers["Authorization"] = `Bearer ${token}`;
+    }
+    return headers;
+}
 
 function setupEventListeners() {
     if (searchInput) searchInput.addEventListener("input", filterAndRenderReviews);
@@ -84,21 +100,31 @@ function setupEventListeners() {
 
     if (logoutBtn) {
         logoutBtn.addEventListener("click", () => {
+            localStorage.removeItem("JWT");
+            localStorage.removeItem("jwtToken");
             showToast("Logged Out", "Redirecting...");
-            setTimeout(() => window.location.href = "index.html", 1000);
+            setTimeout(() => window.location.href = "login.html", 1000);
         });
     }
 }
 
+/**
+ * GET: Fetch all reviews
+ */
 async function loadReviews() {
     showLoading(true);
     try {
-        const res = await fetch(`${API_URL}/all`);
-        if (!res.ok) throw new Error("Server error");
+        const res = await fetch(`${API_URL}/all`, {
+            method: "GET",
+            headers: getHeaders()
+        });
+        
+        if (!res.ok) throw new Error(`Server error: ${res.status}`);
+        
         const data = await res.json();
         reviews = extractData(data);
     } catch (e) {
-        console.warn("Backend offline:", e);
+        console.warn("Backend load failed:", e);
         reviews = [];
     } finally {
         showLoading(false);
@@ -109,6 +135,7 @@ async function loadReviews() {
 function extractData(res) {
     if (Array.isArray(res)) return res;
     if (Array.isArray(res.data)) return res.data;
+    if (Array.isArray(res.body)) return res.body;
     if (Array.isArray(res.result)) return res.result;
     return [];
 }
@@ -239,12 +266,15 @@ function closeModal() {
     reviewModal.classList.remove("active");
 }
 
+/**
+ * POST / PUT: Create or Update review
+ */
 async function handleFormSubmit(e) {
     e.preventDefault();
     const id = reviewIdInput.value ? Number(reviewIdInput.value) : null;
 
     const payload = {
-        reviewId: id || Date.now(),
+        reviewId: id,
         customerName: customerNameInput.value.trim(),
         boatName: boatNameInput.value.trim(),
         rating: Number(ratingSelect.value),
@@ -252,44 +282,47 @@ async function handleFormSubmit(e) {
         comment: commentInput.value.trim()
     };
 
-    if (id) {
-        try {
-            await fetch(`${API_URL}/${id}`, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
-            });
-        } catch (err) { console.warn("Backend sync failed:", err); }
+    const url = id ? `${API_URL}/${id}` : API_URL;
+    const method = id ? "PUT" : "POST";
 
-        const idx = reviews.findIndex(r => r.reviewId === id);
-        if (idx !== -1) reviews[idx] = payload;
-        showToast("Review Updated", "Review saved.");
-    } else {
-        try {
-            await fetch(`${API_URL}/create`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
-            });
-        } catch (err) { console.warn("Backend sync failed:", err); }
+    try {
+        const res = await fetch(url, {
+            method: method,
+            headers: getHeaders(),
+            body: JSON.stringify(payload)
+        });
 
-        reviews.unshift(payload);
-        showToast("Review Added", "Customer feedback published.");
+        if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
+        
+        showToast(id ? "Review Updated" : "Review Added", "Operation successful.");
+        closeModal();
+        await loadReviews();
+    } catch (err) { 
+        console.error("Backend sync failed:", err); 
+        showToast("Error", "Operation failed. Check permissions.");
     }
-
-    closeModal();
-    filterAndRenderReviews();
 }
 
+/**
+ * DELETE: Remove a review
+ */
 async function deleteReview(id) {
     if (!confirm("Are you sure you want to remove this review?")) return;
+    
     try {
-        await fetch(`${API_URL}/${id}`, { method: "DELETE" });
-    } catch (err) { console.warn("Backend request failed:", err); }
+        const res = await fetch(`${API_URL}/${id}`, { 
+            method: "DELETE",
+            headers: getHeaders()
+        });
 
-    reviews = reviews.filter(r => r.reviewId !== id);
-    filterAndRenderReviews();
-    showToast("Review Deleted", "Customer feedback removed.");
+        if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
+        
+        showToast("Review Deleted", "Customer feedback removed.");
+        await loadReviews();
+    } catch (err) { 
+        console.error("Backend request failed:", err); 
+        showToast("Error", "Failed to delete review.");
+    }
 }
 
 function showLoading(isLoading) {
